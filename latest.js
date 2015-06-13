@@ -2,10 +2,10 @@
 
     Fancy.require ( {
         jQuery: false,
-        Fancy : "1.1.0"
+        Fancy : "1.0.1"
     } );
     var NAME    = "FancyBounce",
-        VERSION = "1.0.0";
+        VERSION = "1.0.1";
 
     function FancyBounce ( element, settings ) {
         var SELF     = this;
@@ -29,7 +29,7 @@
                             marginRight: margin.right || '',
                             marginLeft : margin.left || ''
                         }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                            SELF.settings.finished ( me );
+                            SELF.settings.onEnd ( me );
                         } );
                 } );
             } else {
@@ -45,7 +45,7 @@
                             marginRight: margin.right || '',
                             marginLeft : margin.left || ''
                         }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                            SELF.settings.finished ( me );
+                            SELF.settings.onEnd ( me );
                         } );
                 } );
             }
@@ -77,13 +77,13 @@
         margin  : 5,
         speed   : 100,
         times   : 4,
-        finished: function () {
-        }
-
+        onEnd: function () {}
     };
 
     Fancy.bounce     = VERSION;
     Fancy.api.bounce = function ( settings ) {
-        return new FancyBounce ( this.element, settings );
+        return this.set ( NAME, function ( el ) {
+            return new FancyBounce ( el, settings );
+        } )
     };
 }) ( jQuery );
