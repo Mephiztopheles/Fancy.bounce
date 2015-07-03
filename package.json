@@ -1,0 +1,40 @@
+{
+  "name": "fancy-bounce",
+  "title": "FancyBounce",
+  "description": "JavaScript Bounce-plugin for Fancy. Let your dom-elements bounce horizontally",
+  "version": "1.0.1",
+  "main": "fancybounce.js",
+  "homepage": "http://mephiztopheles.wtf/fancy-bounce",
+  "author": "Markus Ahrweiler",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mephiztopheles/Fancy.bounce.git"
+  },
+  "ignore": [
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "keywords": [
+    "fancy",
+    "fancybounce",
+    "bounce",
+    "javascript",
+    "browser"
+  ],
+  "bugs": {
+    "url": "https://github.com/Mephiztopheles/Fancy.bounce/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.9.1",
+    "fancy": ">= 1.0.1"
+  }
+}
