@@ -81,7 +81,7 @@
     };
 
     Fancy.bounce     = VERSION;
-    Fancy.api.bounce = function ( el, settings ) {
-        return new FancyBounce ( $ ( el ), settings );
+    Fancy.api.bounce = function ( settings ) {
+        return new FancyBounce ( this.element, settings );
     };
 }) ( jQuery );
