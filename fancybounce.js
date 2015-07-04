@@ -5,7 +5,7 @@
         Fancy : "1.0.2"
     } );
     var NAME    = "FancyBounce",
-        VERSION = "1.0.2";
+        VERSION = "1.0.3";
 
     function FancyBounce ( element, settings ) {
         var SELF     = this;
