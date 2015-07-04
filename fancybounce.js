@@ -2,10 +2,10 @@
 
     Fancy.require ( {
         jQuery: false,
-        Fancy : "1.0.1"
+        Fancy : "1.0.2"
     } );
     var NAME    = "FancyBounce",
-        VERSION = "1.0.1";
+        VERSION = "1.0.2";
 
     function FancyBounce ( element, settings ) {
         var SELF     = this;
@@ -74,16 +74,14 @@
     FancyBounce.api.name    = NAME;
 
     Fancy.settings [ NAME ] = {
-        margin  : 5,
-        speed   : 100,
-        times   : 4,
-        onEnd: function () {}
+        margin: 5,
+        speed : 100,
+        times : 4,
+        onEnd : function () {}
     };
 
     Fancy.bounce     = VERSION;
-    Fancy.api.bounce = function ( settings ) {
-        return this.set ( NAME, function ( el ) {
-            return new FancyBounce ( el, settings );
-        } )
+    Fancy.api.bounce = function ( el, settings ) {
+        return new FancyBounce ( el, settings );
     };
 }) ( jQuery );
