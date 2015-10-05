@@ -1,67 +1,67 @@
-(function ( $ ) {
+(function( window, $, Fancy ) {
 
-    Fancy.require ( {
+    Fancy.require( {
         jQuery: false,
-        Fancy : "1.0.2"
+        Fancy : "1.0.8"
     } );
     var NAME    = "FancyBounce",
-        VERSION = "1.0.2";
+        VERSION = "1.0.3";
 
-    function FancyBounce ( element, settings ) {
+    function FancyBounce( element, settings ) {
         var SELF     = this;
         SELF.element = element;
         SELF.version = VERSION;
         SELF.name    = NAME;
 
-        SELF.settings = $.extend ( {}, Fancy.settings [ NAME ], settings );
+        SELF.settings = $.extend( {}, Fancy.settings [ NAME ], settings );
 
-        SELF.animate = function ( me, callback, step, margin ) {
-            if ( step % 2 == 0 ) {
+        SELF.animate = function( me, callback, step, margin ) {
+            if( step % 2 == 0 ) {
                 // even
-                me.animate ( {
+                me.animate( {
                     marginLeft : margin.left + SELF.settings.margin,
                     marginRight: margin.right - SELF.settings.margin
-                }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                    if ( step + 1 < SELF.settings.times )
-                        callback ( me, callback, step + 1, margin );
+                }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function() {
+                    if( step + 1 < SELF.settings.times )
+                        callback( me, callback, step + 1, margin );
                     else
-                        me.animate ( {
+                        me.animate( {
                             marginRight: margin.right || '',
                             marginLeft : margin.left || ''
-                        }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                            SELF.settings.onEnd ( me );
+                        }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function() {
+                            SELF.settings.onEnd( me );
                         } );
                 } );
             } else {
                 // odd
-                me.animate ( {
+                me.animate( {
                     marginRight: margin.right + SELF.settings.margin,
                     marginLeft : margin.left - SELF.settings.margin
-                }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                    if ( step + 1 < SELF.settings.times )
-                        callback ( me, callback, step + 1, margin );
+                }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function() {
+                    if( step + 1 < SELF.settings.times )
+                        callback( me, callback, step + 1, margin );
                     else
-                        me.animate ( {
+                        me.animate( {
                             marginRight: margin.right || '',
                             marginLeft : margin.left || ''
-                        }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function () {
-                            SELF.settings.onEnd ( me );
+                        }, SELF.settings.speed / ( SELF.settings.times + 1 ) - 10, function() {
+                            SELF.settings.onEnd( me );
                         } );
                 } );
             }
         };
 
-        SELF.element.each ( function () {
-            var me     = $ ( this ),
+        SELF.element.each( function() {
+            var me     = $( this ),
                 i      = 0,
                 margin = {
-                    top   : parseInt ( me.css ( 'marginTop' ) ),
-                    right : parseInt ( me.css ( 'marginRight' ) ),
-                    bottom: parseInt ( me.css ( 'marginBottom' ) ),
-                    left  : parseInt ( me.css ( 'marginLeft' ) )
+                    top   : parseInt( me.css( 'marginTop' ) ),
+                    right : parseInt( me.css( 'marginRight' ) ),
+                    bottom: parseInt( me.css( 'marginBottom' ) ),
+                    left  : parseInt( me.css( 'marginLeft' ) )
                 };
 
-            SELF.animate ( me, SELF.animate, i, margin );
+            SELF.animate( me, SELF.animate, i, margin );
 
         } );
 
@@ -77,11 +77,11 @@
         margin: 5,
         speed : 100,
         times : 4,
-        onEnd : function () {}
+        onEnd : function() {}
     };
 
     Fancy.bounce     = VERSION;
-    Fancy.api.bounce = function ( settings ) {
-        return new FancyBounce ( this.element, settings );
+    Fancy.api.bounce = function( settings ) {
+        return new FancyBounce( this.element, settings );
     };
-}) ( jQuery );
+})( window, jQuery, Fancy );

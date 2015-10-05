@@ -2,7 +2,7 @@
   "name": "fancy-bounce",
   "title": "FancyBounce",
   "description": "JavaScript Bounce-plugin for Fancy. Let your dom-elements bounce horizontally",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "main": "fancybounce.js",
   "homepage": "http://mephiztopheles.wtf/fancy-bounce",
   "author": "Markus Ahrweiler",
@@ -35,6 +35,6 @@
   "license": "MIT",
   "dependencies": {
     "jquery": ">=1.9.1",
-    "fancy": ">= 1.0.1"
+    "fancy": ">= 1.0.8"
   }
 }
